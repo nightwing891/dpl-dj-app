@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     resources :users do
       resources :rooms 
     end
-  end
-
-  resources :rooms do
-    resources :playlists 
+    
+    resources :rooms do
+      resources :playlists 
     end
+  end 
 end
