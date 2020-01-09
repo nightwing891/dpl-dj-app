@@ -12,8 +12,9 @@ class RoomProvider extends Component {
         .then( res => {
             this.setState({ rooms: res.data })
         })
-        .catch( err => 
-            console.log(err))
+        .catch( err => {
+            console.log(err)
+        })
     }
 
     addRoom = (room) => {
@@ -22,8 +23,9 @@ class RoomProvider extends Component {
             const { rooms } = this.state
             this.setState({ rooms: [...rooms, res.data ]})
         })
-        .catch( err =>
-            console.log(err))
+        .catch( err => {
+            console.log(err)
+        })
     }
 
     updateRoom = (id, room) => {
@@ -36,8 +38,10 @@ class RoomProvider extends Component {
                 return r
             })
             this.setState({ rooms })
-            .catch( err => console.log(err))
-        })
+            })
+            .catch( err => {
+                console.log(err)
+            })
     }
 
     deleteRoom = (id) => {
@@ -46,7 +50,9 @@ class RoomProvider extends Component {
             const { rooms } = this.state
             this.setState({ rooms: rooms.filter( r => r.id !== id)})
         })
-        .catch( err => console.log(err))
+        .catch( err => {
+            console.log(err)
+        })
     }
 
     render() {
@@ -59,7 +65,6 @@ class RoomProvider extends Component {
             }}>
                 { this.props.children }
             </RoomContext.Provider>
-
         )
     }
 }
