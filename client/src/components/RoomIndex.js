@@ -22,4 +22,4 @@ const ConnectedRoom = () => {
     )
 }
 
-export default RoomIndex;
+export default ConnectedRoom;
