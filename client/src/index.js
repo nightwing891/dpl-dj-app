@@ -7,16 +7,19 @@ import AuthProvider from './providers/AuthProvider';
 import RoomProvider from './providers/RoomProvider';
 import { BrowserRouter } from 'react-router-dom';
 import { initMiddleware } from 'devise-axios';
+import PlaylistProvider from './providers/PlaylistProvider';
 
 initMiddleware();
 
 ReactDOM.render(
-		<AuthProvider>
+    <AuthProvider>
         <RoomProvider>
-	    <BrowserRouter>
-	    <App />
-	    </BrowserRouter>
-        </RoomProvider>
-    </AuthProvider>,
+            <PlaylistProvider>
+                <BrowserRouter>
+                        <App />
+                    </BrowserRouter>
+            </PlaylistProvider>
+            </RoomProvider>
+        </AuthProvider>,
    document.getElementById('root')
 );
