@@ -4,10 +4,14 @@ import './index.css';
 import 'semantic-ui-css/semantic.min.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import PlaylistProvider from './providers/PlaylistProvider';
 
 ReactDOM.render(
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>,
+    <PlaylistProvider>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </PlaylistProvider>
+    ,
    document.getElementById('root')
 );
