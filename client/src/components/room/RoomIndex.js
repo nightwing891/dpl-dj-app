@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
-import { RoomConsumer } from '../providers/RoomProvider';
+import { RoomConsumer } from '../../providers/RoomProvider';
+import RoomForm from './RoomForm';
+import RoomList from './RoomList';
+import { Button } from 'semantic-ui-react';
 
 class RoomIndex extends Component {
-    state = { rooms: this.props.rooms }
+    state = { rooms: this.props.rooms, adding: false }
+
+    toggleAdd = () => this.setState({ adding: !this.state.adding })
 
     render() {
+        const { adding } = this.state
         return(
             <>
-            <h1>Room Index</h1>
-
+            <h1>Rooms</h1>
+            {
+                adding ?
+                <RoomForm toggleAdd={this.toggleAdd} />
+                :
+                <Button onClick={this.toggleAdd}>Add A Room</Button>
+            }
+            <RoomList />
             </>
         )
     }
 }
 
 const ConnectedRoom = (props) => {
-    return(
-      
+    return(   
         <RoomConsumer >
-            {
+            { 
                value => (
                    <RoomIndex 
                    {...props}                    
@@ -29,7 +40,6 @@ const ConnectedRoom = (props) => {
                    />
                )
             }
-
         </RoomConsumer>
     )
 }
