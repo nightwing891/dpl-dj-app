@@ -7,7 +7,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import RoomIndex from './components/RoomIndex';
+import RoomIndex from './components/room/RoomIndex';
 
 const App = () => (
   <div>
