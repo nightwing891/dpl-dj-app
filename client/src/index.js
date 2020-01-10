@@ -12,14 +12,14 @@ import PlaylistProvider from './providers/PlaylistProvider';
 initMiddleware();
 
 ReactDOM.render(
-    <AuthProvider>
-        <RoomProvider>
-            <PlaylistProvider>
-                <BrowserRouter>
-                        <App />
-                    </BrowserRouter>
-            </PlaylistProvider>
-            </RoomProvider>
-        </AuthProvider>,
-   document.getElementById('root')
+  <AuthProvider>
+    <RoomProvider>
+      <PlaylistProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PlaylistProvider>
+    </RoomProvider>
+  </AuthProvider>,
+	 document.getElementById('root')
 );
