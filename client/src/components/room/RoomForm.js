@@ -26,7 +26,6 @@ class RoomForm extends Component {
             this.props.updateRoom( this.props.id, this.state )
             this.props.toggleEdit()
         } else {
-            debugger
             this.props.addRoom(this.state)
             this.props.toggleAdd()
         }

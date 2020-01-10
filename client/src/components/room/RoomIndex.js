@@ -5,7 +5,11 @@ import RoomList from './RoomList';
 import { Button } from 'semantic-ui-react';
 
 class RoomIndex extends Component {
-    state = { rooms: this.props.rooms, adding: false }
+    state = { adding: false }
+
+    componentDidMount() {
+        this.props.getRooms()
+    }
 
     toggleAdd = () => this.setState({ adding: !this.state.adding })
 
@@ -20,7 +24,7 @@ class RoomIndex extends Component {
                 :
                 <Button onClick={this.toggleAdd}>Add A Room</Button>
             }
-            <RoomList />
+                <RoomList rooms={this.props.rooms}/>
             </>
         )
     }
@@ -34,6 +38,7 @@ const ConnectedRoom = (props) => {
                    <RoomIndex 
                    {...props}                    
                    rooms={ value.rooms }
+                   getRooms={ value.getRooms }
                    addRoom={ value.addRoom }
                    updateRoom={ value.updateRoom }
                    deleteRoom={ value.deleteRoom }

@@ -3,16 +3,14 @@ import Room from './Room';
 
 const RoomList = ({rooms}) => (
     <>
-    {/* {
+    {
        rooms.map( r =>
-        {
            <Room 
             key={r.id}
             {...r}
            />
-        }
-       ) 
-    } */}
+        ) 
+    }
     </>
 )
  

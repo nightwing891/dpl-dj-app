@@ -1,7 +1,6 @@
 class Api::RoomsController < ApplicationController
 
 	def index
-		binding.pry
 		render json: current_user.rooms
 	end
 

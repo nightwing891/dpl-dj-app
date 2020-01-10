@@ -7,7 +7,7 @@ export const RoomConsumer = RoomContext.Consumer;
 class RoomProvider extends Component {
     state = { rooms: [] }
 
-    componentDidMount() {
+    getRooms = () => {
         axios.get('/api/rooms')
         .then( res => {
             this.setState({ rooms: res.data })
@@ -59,6 +59,7 @@ class RoomProvider extends Component {
         return(
             <RoomContext.Provider value={{
                 ...this.state,
+                getRooms: this.getRooms,
                 addRoom: this.addRoom,
                 updateRoom: this.updateRoom,
                 deleteRoom: this.deleteRoom
