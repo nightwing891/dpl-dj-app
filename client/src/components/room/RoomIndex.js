@@ -30,7 +30,7 @@ class RoomIndex extends Component {
     }
 }
 
-const ConnectedRoom = (props) => {
+const ConnectedRoomIndex = (props) => {
     return(   
         <RoomConsumer >
             { 
@@ -49,4 +49,4 @@ const ConnectedRoom = (props) => {
     )
 }
 
-export default ConnectedRoom;
+export default ConnectedRoomIndex;
