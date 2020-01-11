@@ -8,6 +8,7 @@ import Register from './components/auth/Register';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import RoomIndex from './components/room/RoomIndex';
+import RoomShow from './components/room/RoomShow';
 import NoMatch from './components/shared/NoMatch';
 import About from './components/shared/About';
 import Contact from './components/shared/Contact';
@@ -24,7 +25,8 @@ const App = () => (
 	    <Route exact path="/login" component={Login} />
 	    <Route exact path="/register" component={Register} />
       <Route exact path="/rooms" component={RoomIndex} />
-      <Route component={NoMatch} />
+      <Route exact path="/rooms/:id" component={RoomShow} />
+      <Route component={NoMatch} /> 
 	  </Switch>
   </FetchUser>
   </div>
