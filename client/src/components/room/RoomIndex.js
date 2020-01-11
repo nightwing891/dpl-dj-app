@@ -13,6 +13,8 @@ class RoomIndex extends Component {
 
     toggleAdd = () => this.setState({ adding: !this.state.adding })
 
+
+    
     render() {
         const { adding } = this.state
         return(
@@ -48,5 +50,4 @@ const ConnectedRoomIndex = (props) => {
         </RoomConsumer>
     )
 }
-
 export default ConnectedRoomIndex;
