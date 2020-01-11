@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 class RoomShow extends Component {
+    state = { 
+        name: '',
+        description: ''
+    }
     render() {
         const { name, description } = this.props
         return(
