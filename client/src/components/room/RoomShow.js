@@ -5,8 +5,9 @@ class RoomShow extends Component {
         name: '',
         description: ''
     }
+    
     render() {
-        const { name, description } = this.props
+        const { name, description } = this.props.location.state
         return(
             <>
             <h1>{name}</h1>
