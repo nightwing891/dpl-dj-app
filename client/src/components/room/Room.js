@@ -7,7 +7,7 @@ const Room = ({ id, name, description }) => (
     <h3>{name}</h3>
     <p>{description}</p>
     <br />
-    <Button onClick={this.deleteRoom}>
+    <Button onClick={ () => deleteRoom(id) }>
         Delete Room
     </Button>
     </>
