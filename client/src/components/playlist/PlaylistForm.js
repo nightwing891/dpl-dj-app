@@ -14,24 +14,23 @@ class PlaylistForm extends Component {
     }
   }
 
-  handleChange = (e) => {
-    const { name, value } = e.target
-    this.setState({ [name]: value })
-  }
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
+  
 
   handleSubmit = (e) => {
-    e.preventdefault()
+    e.preventDefault()
     if (this.props.id) {
       this.props.updatePlaylist( this.props.id, this.state )
       this.props.toggleEdit()
     } else {
-      this.props.addPlaylist(this.state)
+      this.props.addPlaylist( this.props.room_id, this.state)
       this.props.toggleAdd()
     }
     this.setState({ name: '', description: '', explicit: null })
   }
 
   render() {
+    const { name, description, explicit } = this.state
     return(
       <>
         <Form onSubmit={this.handleSubmit}>

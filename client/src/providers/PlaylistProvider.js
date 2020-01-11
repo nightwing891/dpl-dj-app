@@ -23,6 +23,7 @@ class PlaylistProvider extends Component {
     axios.post(`/api/rooms/${room_id}/playlists`, playlist)
     .then( res => {
       const { playlists } = this.state
+      debugger
       this.setState({ playlists: [...playlists, res.data] })
     })
     .catch( err => {
