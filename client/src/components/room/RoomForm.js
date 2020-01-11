@@ -25,7 +25,8 @@ class RoomForm extends Component {
         if (this.props.id) {
             this.props.updateRoom( this.props.id, this.state )
             this.props.toggleEdit()
-        } else {
+        }
+        else {
             this.props.addRoom(this.state)
             this.props.toggleAdd()
         }
@@ -75,5 +76,4 @@ const ConnectedRoomForm = (props) => {
         </RoomConsumer>
     )
 }
-
 export default ConnectedRoomForm;
