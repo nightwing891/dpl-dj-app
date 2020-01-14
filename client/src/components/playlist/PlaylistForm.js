@@ -20,7 +20,7 @@ class PlaylistForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.props.id) {
-      this.props.updatePlaylist( this.props.id, this.state )
+      this.props.updatePlaylist( this.props.id, this.state, this.props.room_id )
       this.props.toggleEdit()
     } else {
       this.props.addPlaylist( this.props.room_id, this.state)

@@ -11,7 +11,7 @@ class Playlist extends Component {
 
   render() { 
     const { editing } = this.state
-    const { id, room_id, name, description, explicit, deletePlaylist } = this.props
+    const { id, room_id, name, description, explicit, deletePlaylist, updatePlaylist } = this.props
 
     return(
       <>
@@ -22,10 +22,18 @@ class Playlist extends Component {
         <p>{explicit}</p>
 
         <Button onClick={ () => deletePlaylist(room_id, id) }>Delete Playlist</Button>
+        {
+          editing ?
+          <PlaylistForm {...this.props} toggleEdit={this.toggleEdit} />
+          :
+          <Button onClick={this.toggleEdit}>Update Playlist</Button>
+        }
       </>
     )
   }
 }
+
+
 
 const ConnectedPlaylist = (props) => {
   return(

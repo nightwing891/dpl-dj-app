@@ -42,6 +42,7 @@ class PlaylistProvider extends Component {
   }
 
   updatePlaylist = (id, playlist, room_id) => {
+    debugger
     axios.put(`/api/rooms/${room_id}/playlists/${id}`, playlist)
     .then ( res => {
       const playlists = this.state.playlists.map( p => {
