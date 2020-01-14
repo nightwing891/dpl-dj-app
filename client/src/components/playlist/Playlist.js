@@ -14,7 +14,6 @@ class Playlist extends Component {
     const { id, room_id, name, description, explicit, deletePlaylist } = this.props
 
     return(
-
       <>
         <Link to={{ 
           pathname: `/api/rooms/${room_id}/playlists/${id}`, state: { name, description, explicit }
@@ -22,7 +21,7 @@ class Playlist extends Component {
         <p>{description}</p>
         <p>{explicit}</p>
 
-        <Button onClick={ () => deletePlaylist(room_id) }>Delete Playlist</Button>
+        <Button onClick={ () => deletePlaylist(room_id, id) }>Delete Playlist</Button>
       </>
     )
   }

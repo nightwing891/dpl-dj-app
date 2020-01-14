@@ -1,5 +1,5 @@
 import React from 'react';
-import Playlist from 'react';
+import Playlist from './Playlist';
 
 const PlaylistList = ({ playlists }) => (
   <>
@@ -8,7 +8,7 @@ const PlaylistList = ({ playlists }) => (
           <Playlist
             key={p.id}
             {...p}
-            />
+          />
         )
     }
   </>  

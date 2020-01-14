@@ -3,13 +3,13 @@ import PlaylistForm from './PlaylistForm';
 import PlaylistList from './PlaylistList';
 import { Button } from 'semantic-ui-react';
 import { PlaylistConsumer } from '../../providers/PlaylistProvider';
-import Playlist from './Playlist';
+
 
 class PlaylistIndex extends Component {
-  state = { playlists: this.props.playlists, adding: false }
+  state = { adding: false }
 
   componentDidMount() {
-    this.props.getPlaylist()
+    this.props.getPlaylist(this.props.room_id)
   }
 
   toggleAdd = () => this.setState({ adding: !this.state.adding })

@@ -25,7 +25,7 @@ class Api::PlaylistsController < ApplicationController
 
 
   def destroy
-    @room.playlist.find(params[:id]).destroy
+    @room.playlists.find(params[:id]).destroy
     render json: {message: 'Playlist Deleted'}
   end
 

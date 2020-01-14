@@ -11,7 +11,7 @@ class PlaylistProvider extends Component {
   getPlaylist = (room_id) => {
     axios.get(`/api/rooms/${room_id}/playlists`)
     .then( res => {
-      this.setState({ playlists: res.data})
+      this.setState({ playlists: res.data })
     })
     .catch( err => {
       console.log(err)
@@ -23,7 +23,6 @@ class PlaylistProvider extends Component {
     axios.post(`/api/rooms/${room_id}/playlists`, playlist)
     .then( res => {
       const { playlists } = this.state
-      debugger
       this.setState({ playlists: [...playlists, res.data] })
     })
     .catch( err => {
@@ -31,7 +30,7 @@ class PlaylistProvider extends Component {
     })
   }
 
-  deletePlaylist = (id, room_id) => {
+  deletePlaylist = (room_id, id) => {
     axios.delete(`/api/rooms/${room_id}/playlists/${id}`)
     .then( res => {
       const { playlists } = this.state
