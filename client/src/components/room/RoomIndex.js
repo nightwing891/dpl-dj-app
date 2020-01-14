@@ -22,7 +22,7 @@ class RoomIndex extends Component {
                 adding ?
                 <RoomForm toggleAdd={this.toggleAdd} />
                 :
-                <Button onClick={this.toggleAdd}>Add A Room</Button>
+                <Button onClick={this.toggleAdd}>Create A Room</Button>
             }
                 <RoomList rooms={this.props.rooms}/>
             </>
