@@ -8,10 +8,11 @@ export const PlaylistConsumer = PlaylistContext.Consumer;
 class PlaylistProvider extends Component {
   state = { playlists: [] }
 
-  getPlaylist = (room_id) => {
+  getPlaylist = () => {
+    const { room_id } = this.props
     axios.get(`/api/rooms/${room_id}/playlists`)
     .then( res => {
-      this.setState({ playlists: res.data })
+      this.setState({ playlists: res.data})
     })
     .catch( err => {
       console.log(err)
@@ -19,7 +20,8 @@ class PlaylistProvider extends Component {
   }
 
 
-  addPlaylist = ( room_id, playlist) => {
+  addPlaylist = ( playlist) => {
+    const { id: room_id } = this.props
     axios.post(`/api/rooms/${room_id}/playlists`, playlist)
     .then( res => {
       const { playlists } = this.state
@@ -30,7 +32,8 @@ class PlaylistProvider extends Component {
     })
   }
 
-  deletePlaylist = (room_id, id) => {
+  deletePlaylist = (id) => {
+    const { id: room_id} = this.props
     axios.delete(`/api/rooms/${room_id}/playlists/${id}`)
     .then( res => {
       const { playlists } = this.state
@@ -41,7 +44,8 @@ class PlaylistProvider extends Component {
     })
   }
 
-  updatePlaylist = (id, playlist, room_id) => {
+  updatePlaylist = (id, playlist) => {
+    const { id: room_id } = this.props
     axios.put(`/api/rooms/${room_id}/playlists/${id}`, playlist)
     .then ( res => {
       const playlists = this.state.playlists.map( p => {

@@ -12,6 +12,9 @@ import RoomShow from './components/room/RoomShow';
 import NoMatch from './components/shared/NoMatch';
 import About from './components/shared/About';
 import Contact from './components/shared/Contact';
+import PlaylistIndex from './components/playlist/PlaylistIndex';
+import PlaylistShow from './components/playlist/PlaylistShow';
+
 
 
 const App = () => (
@@ -24,9 +27,11 @@ const App = () => (
 	    <Route exact path="/contact" component={Contact} />
 	    <Route exact path="/login" component={Login} />
 	    <Route exact path="/register" component={Register} />
-      <Route exact path="/rooms" component={RoomIndex} />
-      <Route exact path="/rooms/:id" component={RoomShow} />
-      <Route component={NoMatch} /> 
+      	    <Route exact path="/rooms" component={RoomIndex} />
+            <Route exact path="/rooms/:id" component={RoomShow} />
+            <Route exact path="/playlists" component={PlaylistIndex} />
+            <Route exact path="/rooms/:room_id/playlists/:id" component={PlaylistShow} />
+            <Route component={NoMatch} />
 	  </Switch>
   </FetchUser>
   </div>

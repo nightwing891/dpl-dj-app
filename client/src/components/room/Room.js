@@ -17,7 +17,7 @@ class Room extends Component {
     <Link
     to={{
         pathname: `/rooms/${id}`,
-        state: { id, name, description }
+        state: { name, description, id }
     }}><h3>{name}</h3></Link>
     <p>{description}</p>
     <br />
@@ -45,7 +45,6 @@ const ConnectedRoom = (props) => {
                    <Room
                    {...props}                    
                    rooms={ value.rooms }
-                   updateRoom={ value.updateRoom }
                    updateRoom={ value.updateRoom }
                    deleteRoom={ value.deleteRoom }
                    />
