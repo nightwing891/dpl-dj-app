@@ -3,6 +3,7 @@ import { RoomConsumer } from '../../providers/RoomProvider';
 import RoomForm from './RoomForm';
 import RoomList from './RoomList';
 import { Button } from 'semantic-ui-react';
+import RoomSearch from './RoomSearch';
 
 class RoomIndex extends Component {
     state = { adding: false }
@@ -25,6 +26,9 @@ class RoomIndex extends Component {
                 <Button onClick={this.toggleAdd}>Create A Room</Button>
             }
                 <RoomList rooms={this.props.rooms}/>
+           
+
+            <RoomSearch />
             </>
         )
     }

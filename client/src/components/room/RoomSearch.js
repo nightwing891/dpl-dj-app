@@ -1,48 +1,53 @@
 import React, { Component } from 'react';
-import { Search, Grid, Header, Segment, GridColumn } from 'semantic-ui-react';
-
-const initialState = { isLoading: false, rooms: [], "value": "" }
+import { Form, Input  } from 'semantic-ui-react';
+import axios from 'axios';
 
 class RoomSearch extends Component {
-    state = initialState
+    state = { search: "", rooms: [], filteredRooms: [], "value": "" }
 
-    handleResultSelect = ( e, { room }) => this.setState({ value: room.name })
-    
-    hdandleSearchChange = ( e, { value }) => {
-        this.setState({ isLoading: true, value })
+    handleInputChange = event => {
+        const search = event.target.value
+
+        this.setState(prevState => {
+            const filteredRooms = prevState.rooms.data.filter(element => {
+                return element.name
+            })
+
+            return {
+                search,
+                filteredRooms
+            }
+        })
     }
 
+    getRooms = () => {
+        axios.get('/api/rooms')
+        .then(rooms => {
+            const filteredRooms = rooms.data.filter(element => {
+                return element.name
+            })
+            this.setState({
+                rooms,
+                filteredRooms
+            })
+        })
+    }
+
+    componentWillMount() {
+        this.getRooms()
+    }
     
     render() {
-        const { isLoading, value, rooms } = this.state
-
         return(
-            <Grid>
-                <Grid.Column width={6}>
-                    <Search
-                    loading={isLoading}
-                    onResultSelect={this.handleResultSelect}
-                    onSearchChange={_.debounce(this.hdandleSearchChange, 500, {
-                        leading: true,
-                    })}
-                    rooms={rooms}
-                    value={value}
-                    {...this.props}
+            <div className="room-search">
+                <Form>
+                    <Input 
+                        placeholder="Find a room..."
+                        value={this.state.search}
+                        onChange={this.handleInputChange}
                     />
-                </Grid.Column>
-                <Grid.Column width={10}>
-                    <Segment>
-                    <Header>State</Header>
-                    <pre style={{ overflowX: 'auto' }}>
-                      {JSON.stringify(this.state, null, 2)}
-                     </pre>
-                     <Header>Options</Header>
-                     <pre style={{ overflowX: 'auto' }}>
-                       {JSON.stringify(source, null, 2)}
-                     </pre>
-                    </Segment>
-                </Grid.Column>
-            </Grid>
+                </Form>
+            </div>
         )
     }
 
