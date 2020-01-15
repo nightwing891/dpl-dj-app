@@ -27,15 +27,11 @@ const App = () => (
 	    <Route exact path="/contact" component={Contact} />
 	    <Route exact path="/login" component={Login} />
 	    <Route exact path="/register" component={Register} />
-      <Route exact path="/rooms" component={RoomIndex} />
-      <Route exact path="/rooms/:id" component={RoomShow} />
-<<<<<<< HEAD
-      <Route component={NoMatch} /> 
-=======
-      <Route exact path="/playlists" component={PlaylistIndex} />
-      <Route exact path="/api/rooms/:room_id/playlists/:id" component={PlaylistShow} />
-      <Route component={NoMatch} />
->>>>>>>  update edit and delete room for gabby
+      	    <Route exact path="/rooms" component={RoomIndex} />
+            <Route exact path="/rooms/:id" component={RoomShow} />
+            <Route exact path="/playlists" component={PlaylistIndex} />
+            <Route exact path="/rooms/:room_id/playlists/:id" component={PlaylistShow} />
+            <Route component={NoMatch} />
 	  </Switch>
   </FetchUser>
   </div>
