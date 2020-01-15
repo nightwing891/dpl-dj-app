@@ -27,8 +27,9 @@ class RoomIndex extends Component {
             }
                 <RoomList rooms={this.props.rooms}/>
            
-
-            <RoomSearch toggle={this.toggle} rooms={this.state.rooms} query={this.state.query}/>
+            <div>
+            <RoomSearch />
+            </div>
             </>
         )
     }
