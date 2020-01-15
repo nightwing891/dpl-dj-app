@@ -1,40 +1,36 @@
 import React, { Component } from 'react';
 import { Form, Input  } from 'semantic-ui-react';
 import axios from 'axios';
+import RoomSuggestions from './RoomSeachSuggestions';
 
 class RoomSearch extends Component {
-    state = { search: "", rooms: [], filteredRooms: [], "value": "" }
+    state = { query: "", rooms: [] }
 
-    handleInputChange = event => {
-        const search = event.target.value
+    toggle = () => {
+        this.setState({rooms: []})
+    }
 
-        this.setState(prevState => {
-            const filteredRooms = prevState.rooms.data.filter(element => {
-                return element.name
-            })
-
-            return {
-                search,
-                filteredRooms
+    handleInputChange = () => {
+        this.setState({
+            query: this.search.value
+        }, () => {
+            if (this.state.query && this.state.query.length > 0) {
+                this.getRooms()
             }
+            else {this.toggle()}
         })
     }
 
     getRooms = () => {
         axios.get('/api/rooms')
-        .then(rooms => {
-            const filteredRooms = rooms.data.filter(element => {
-                return element.name
-            })
+        .then( data => {
             this.setState({
-                rooms,
-                filteredRooms
+                rooms: data.data 
             })
         })
-    }
-
-    componentWillMount() {
-        this.getRooms()
+        .catch( err => {
+            console.log(err)
+        })
     }
     
     render() {
@@ -43,14 +39,15 @@ class RoomSearch extends Component {
                 <Form>
                     <Input 
                         placeholder="Find a room..."
+                        ref={input => this.search = input}
                         value={this.state.search}
                         onChange={this.handleInputChange}
                     />
+                    <RoomSuggestions toggle={this.toggle} rooms={this.state.rooms} query={this.state.query}/>
                 </Form>
             </div>
         )
     }
-
 }
 
 export default RoomSearch;
