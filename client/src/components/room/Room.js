@@ -46,7 +46,6 @@ const ConnectedRoom = (props) => {
                    {...props}                    
                    rooms={ value.rooms }
                    updateRoom={ value.updateRoom }
-                   updateRoom={ value.updateRoom }
                    deleteRoom={ value.deleteRoom }
                    />
                )

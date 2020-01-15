@@ -10,9 +10,10 @@ class RoomSearch extends Component {
         this.setState({rooms: []})
     }
 
-    handleInputChange = () => {
+    handleInputChange = (e) => {
+        const { name, value } = e.target
         this.setState({
-            query: this.search.value
+            [name]: value
         }, () => {
             if (this.state.query && this.state.query.length > 0) {
                 this.getRooms()
@@ -39,7 +40,7 @@ class RoomSearch extends Component {
                 <Form>
                     <Input 
                         placeholder="Find a room..."
-                        ref={input => this.search = input}
+                        name='query'
                         value={this.state.search}
                         onChange={this.handleInputChange}
                     />
