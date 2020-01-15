@@ -20,20 +20,20 @@ import PlaylistShow from './components/playlist/PlaylistShow';
 const App = () => (
   <div>
   <Navbar />
-  <FetchUser>
+      <FetchUser>
 	  <Switch>
 	    <ProtectedRoute exact path="/" component={Home} />
 	    <Route exact path="/about" component={About} />
 	    <Route exact path="/contact" component={Contact} />
 	    <Route exact path="/login" component={Login} />
 	    <Route exact path="/register" component={Register} />
-      	    <Route exact path="/rooms" component={RoomIndex} />
-            <Route exact path="/rooms/:id" component={RoomShow} />
-            <Route exact path="/playlists" component={PlaylistIndex} />
-            <Route exact path="/rooms/:room_id/playlists/:id" component={PlaylistShow} />
-            <Route component={NoMatch} />
+      <Route exact path="/rooms" component={RoomIndex} />
+      <Route exact path="/rooms/:id" component={RoomShow} />
+      <Route exact path="/playlists" component={PlaylistIndex} />
+      <Route exact path="/api/rooms/:room_id/playlists/:id" component={PlaylistShow} />
+      <Route component={NoMatch} />
 	  </Switch>
-  </FetchUser>
+      </FetchUser>
   </div>
 )
 

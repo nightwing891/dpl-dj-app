@@ -6,10 +6,11 @@ import { PlaylistConsumer } from '../../providers/PlaylistProvider';
 
 
 class PlaylistIndex extends Component {
-  state = { adding: false }
+  state = { adding: false, room_id: {} }
 
   componentDidMount() {
-    this.props.getPlaylist(this.props.room_id)
+    this.setState({room_id: this.props.room_id})
+    // this.props.getPlaylist(this.props.room_id)
   }
 
   toggleAdd = () => this.setState({ adding: !this.state.adding })
@@ -23,7 +24,7 @@ class PlaylistIndex extends Component {
 
         {
           adding ? 
-          <PlaylistForm toggleAdd={this.toggleAdd} room_id={this.props.room_id} />
+          <PlaylistForm toggleAdd={this.toggleAdd} room_id={this.state.room_id} />
           :
           <Button onClick={this.toggleAdd}>Add A Playlist</Button>
         }

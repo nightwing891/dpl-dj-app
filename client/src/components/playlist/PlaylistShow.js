@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 
+
 class PlaylistShow extends Component {
   state = { name: '', description: '', explicit: null }
 
@@ -12,6 +13,7 @@ class PlaylistShow extends Component {
         <h1>{name}</h1>
         <p>{description}</p>
         <p>{explicit}</p>
+        
       </>
     )
   }
