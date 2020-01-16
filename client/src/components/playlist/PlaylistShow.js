@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SongSearch from './SongSearch';
 
 
 
@@ -10,10 +11,10 @@ class PlaylistShow extends Component {
 
     return(
       <>
+        <SongSearch />
         <h1>{name}</h1>
         <p>{description}</p>
         <p>{explicit}</p>
-        
       </>
     )
   }
