@@ -16,7 +16,6 @@ import PlaylistIndex from './components/playlist/PlaylistIndex';
 import PlaylistShow from './components/playlist/PlaylistShow';
 
 
-
 const App = () => (
   <div>
   <Navbar />

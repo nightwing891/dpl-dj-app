@@ -3,8 +3,10 @@ import chris from './images/chris.jpg';
 import somchay from './images/somchay.jpg';
 import gabby from './images/gabby.jpg';
 
-const About = () => (
-	<>
+const About = () => {
+
+	return(
+		<>
 		<h1>About DPL-DJ-APP</h1>
 		<br />
 		<p>
@@ -30,6 +32,7 @@ const About = () => (
 		<p>About Chris</p>
 		<br />
 	</>
-)
+	)
+} 
 
 export default About;
