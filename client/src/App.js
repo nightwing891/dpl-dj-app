@@ -21,7 +21,7 @@ const App = () => (
   <Navbar />
       <FetchUser>
 	  <Switch>
-	    <ProtectedRoute exact path="/" component={Home} />
+	    <Route exact path="/" component={Home} />
 	    <Route exact path="/about" component={About} />
 	    <Route exact path="/contact" component={Contact} />
 	    <Route exact path="/login" component={Login} />
