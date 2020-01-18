@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 DeviseTokenAuth.setup do |config|
+
+  # config.omniauth :spotify, Rails.application.credentials.spotify[ENV['client_id']], Rails.application.credentials.spotify[ENV['client_secret']], scope: %w(
+  #   ugc-image-upload
+  #   playlist-modify-public
+  #   playlist-read-collaborative
+  #   playlist-read-private
+  #   user-read-private
+  #   user-read-email
+  #   user-library-read
+  #   user-library-modify
+  # ).join(' ')
   # By default the authorization headers will change after each request. The
   # client is responsible for keeping track of the changing tokens. Change
   # this to false to prevent the Authorization header from changing after
@@ -29,7 +40,7 @@ DeviseTokenAuth.setup do |config|
   # This route will be the prefix for all oauth2 redirect callbacks. For
   # example, using the default '/omniauth', the github oauth2 provider will
   # redirect successful authentications to '/omniauth/github/callback'
-  # config.omniauth_prefix = "/omniauth"
+  # config.omniauth_prefix = "/callback"
 
   # By default sending current password is not needed for the password update.
   # Uncomment to enforce current_password param to be checked before all
@@ -51,5 +62,5 @@ DeviseTokenAuth.setup do |config|
   # By default, only Bearer Token authentication is implemented out of the box.
   # If, however, you wish to integrate with legacy Devise authentication, you can
   # do so by enabling this flag. NOTE: This feature is highly experimental!
-  # config.enable_standard_devise_support = false
+  # config.enable_standard_devise_support = true
 end
